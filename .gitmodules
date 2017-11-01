@@ -1,0 +1,3 @@
+[submodule "physreg"]
+	path = physreg
+	url = https://github.com/physcip/physreg
