@@ -47,7 +47,7 @@ for u in *; do
 		echo sudo -u $u rm -r $DIR/$u/Library/Thunderbird
 	fi
 	if [ -d "$u/Library/Application Support/Steam" ]; then
-		echo sudo -u $u rm -r $DIR/$u/Library/Mail
+		echo sudo -u $u rm -r \"$DIR/$u/Library/Application Support/Steam\"
 	fi
 	if [ "$(sudo ls $u/Downloads 2>/dev/null | grep -v '\.localized\|DS_Store' | wc -l)" -gt "0" ]; then
 		echo sudo -iu $u find $DIR/$u/Downloads/ -mindepth 1 -delete
