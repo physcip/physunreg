@@ -7,7 +7,7 @@ require_once "physreg/config.inc.php";
 
 # $PRESERVEGROUPS: Groups whose member accounts to preserve because they are either
 # allowed to register CIP pool accounts ($ALLOWEDGROUPS, physreg setting) or their
-# accounts are not supposed to be deleted ($KEEPGROUPS, physunreg setting)
+# accounts are not supposed to be disabled ($KEEPGROUPS, physunreg setting)
 # The equivalent for specific users is $KEEPUSERS
 $PRESERVEGROUPS = array_merge($ALLOWEDGROUPS, $KEEPGROUPS);
 
@@ -118,7 +118,7 @@ foreach ($active_users as $user)
 # Students with a physics minor or other exceptional cases get a special permission to create
 # an account by manually adding them to $ALLOWEDUSERS in physreg. Since these permissions are
 # usually only given for the duration of a single semester, ask users on whether we should
-# delete the users in $ALLOWEDUSERS or not.
+# disable the users in $ALLOWEDUSERS or not.
 foreach ($to_disable as $uid => $user)
 {
 	if (in_array($uid, $ALLOWEDUSERS))
@@ -132,7 +132,7 @@ foreach ($to_disable as $uid => $user)
 # Actually perform deletion after asking for permission
 if (count($to_disable) > 0)
 {
-	echo sprintf("\nList of accounts to delete:\n");
+	echo sprintf("\nList of accounts to disable:\n");
 	foreach ($to_disable as $uid => $user)
 		echo "* " . $user["fullname"] . "\n";
 
